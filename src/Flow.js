@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import ReactFlow, {
     useNodesState,
     useEdgesState,
@@ -251,18 +251,19 @@ const ControlsStyled = styled(Controls)`
 }
 `;
 const Flow = ({ children }) => {
-    let initialNodes=[]
-    let initialEdges=[]
+    let initialNodes = []
+    let initialEdges = []
     const [loading, setLoading] = useState(false)
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-    const [selectedNodeId, setSelectedNodeId] = useState(null);
- 
+
     useEffect(() => {
-        const fetchJson =() => {
+
+        const fetchJson = () => {
             setLoading(true)
             const data = manifest.nodes
             const keys = Object.keys(data)
+            const s = new Set()
             const nodes = keys.map((e, i) => {
                 return {
                     id: `${i}`,
@@ -281,26 +282,36 @@ const Flow = ({ children }) => {
             for (const key in data) {
                 nodesArray.push(data[key].depends_on.nodes);
             }
-            const edges = nodesArray.map((e, i) => {
-                if (e.length > 0) {
-                    return e.map((item) => {
-                        let k = keys.indexOf(item)
-                        return {
-                            id: `e${i}-${k}`,
-                            source: `${i}`,
-                            target: `${k}`,
-                            style: {
-                                strokeWidth: 2,
-                                stroke: "#FF0072"
-                            },
-                            markerEnd: { type: "arrowclosed", color: "#ff0072", width: 30, height: 30 }
+            //---------------------------------------------------------------------------------------------------------------------------------------
+            let edges = []
+            for (let i = 0; i < nodesArray.length; i++) {
+                if (nodesArray[i].length > 0) {
+                    for (let j = 0; j < nodesArray[i].length; j++) {
+                        if (!s.has(nodesArray[i][j])) {
+                            s.add(nodesArray[i][j])
+                            let k = keys.indexOf(nodesArray[i][j])
+                            if (k === -1) {
+                                continue
+                            }
+                            let p = {
+                                id: `e${i}-${k}`,
+                                source: `${i}`,
+                                target: `${k}`,
+                                style: {
+                                    strokeWidth: 2,
+                                    stroke: "#FF0072"
+                                },
+                                markerEnd: { type: "arrowclosed", color: "#ff0072", width: 30, height: 30 }
+                            }
+                            edges.push(p)
                         }
-                    })
+                    }
+                    s.clear()
                 }
-            })
-            
-            setEdges(edges.flat().filter((e) => { return (e && e.target != -1) }))
-            setLoading(false)
+            }  // computes edges array
+            //----------------------------------------------------------------------------------------------------------------------------------------
+            setEdges(edges)
+            setLoading(false)// will work in async call
         }
 
         fetchJson()
@@ -322,59 +333,78 @@ const Flow = ({ children }) => {
                     eds
                 )
             ),
-        []
+        [setEdges]
     );
-    // const onClick = (event) => {
-    //   // event.stopPropagation();
-    //   const updatedElements = edges.map((element) => {
-    //     if (element.type === "edge") {
-    //       return {
-    //         ...element,
-    //         style: { stroke: "#ccc" },
-    //         animated: false // Set the normal color here
-    //       };
-    //     }
-    //     return element;
-    //   });
-    //   setEdges(updatedElements);
-    // };
-    // const onEdgeClick = (event, edge) => {
-    //   console.log("Clicked edge:", edge);
-    //   if (edge.selected) {
-    //     console.log(true);
-    //   }
-    // };
+    //-----------------------------------------------------------------------------------------------------------
+    const onNodeClick = useCallback((event, node) => {   //breaking 
+        // Change the color of the edges connected to the node that was clicked.
+        event.stopPropagation()
+        const newedges = edges.map((edge) => {
+            if (edge.source === node.id || edge.target === node.id) {
+                return {
+                    ...edge,
+                    style: {
+                        stroke: "#01e1ff",
+                        strokeWidth: 5
+                    },
+                    markerEnd: { type: "arrowclosed", color: "#01e1ff", width: 20, height: 20 },
+                    animated: true
+                }
+            }
+            else {
+                return {
+                    ...edge,
+                    style: {
+                        stroke: "#FF0072",
+                        strokeWidth: 2
+                    },
+                    markerEnd: { type: "arrowclosed", color: "#FF0072", width: 30, height: 30 },
+                    animated: false
+                }
+            }
 
-    const handleNodeSelection = (event, node) => {
-        if (selectedNodeId === node.id) {
-            // Node is being unselected
-            setSelectedNodeId(null);
-        } else {
-            // Node is being selected
-            setSelectedNodeId(node.id);
-            console.log(node.id)
-        }
-    };
-    const getEdgeColor = (edge) => {
-        if (selectedNodeId && (edge.source === selectedNodeId || edge.target === selectedNodeId)) {
-            return 'red'; // Set the desired color for selected edges
-        }
-        return 'default'; // Set the default color for unselected edges
-    };
+        })
+
+        setEdges(newedges);
+    }, [edges])
+    //-----------------------------------------------------------------------------------------------------------------------
+    const setDefaultEdges = useCallback((event, node) => {   //breaking 
+        // Change the color of the edges connected to the node that was clicked
+        console.log("parent event", event)
+        const newedges = edges.map((edge) => {
+            return {
+                ...edge,
+                style: {
+                    stroke: "#FF0072",
+                    strokeWidth: 2
+                },
+                markerEnd: { type: "arrowclosed", color: "#FF0072", width: 30, height: 30 },
+                animated: false
+            }
+        })
+
+        setEdges(newedges);
+    }, [edges])
+
+
+
     return (
         <div style={{ height: "100vh", width: "100vw" }} >
             {loading ? <h1>Loading...</h1> :
                 <ReactFlowStyled
                     nodes={nodes}
                     edges={edges}
+                    onClick={setDefaultEdges}
                     onNodesChange={onNodesChange}
                     onEdgesChange={onEdgesChange}
                     onConnect={onConnect}
                     nodeTypes={nodeTypes}
-                    // onEdgeClick={onEdgeClick}
+                    onNodeClick={onNodeClick}
                     connectionLineComponent={ConnectionLine}
-                    onNodeSelection={handleNodeSelection}
                     fitView
+                    elevateEdgesOnSelect={true}
+                    snapGrid={[25, 25]}
+                    snapToGrid={true}
                     minZoom={0.1}
                 >
                     <MiniMapStyled />
