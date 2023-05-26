@@ -1,0 +1,1524 @@
+{
+    "metadata": {
+        "dbt_schema_version": "https://schemas.getdbt.com/dbt/catalog/v1.json",
+        "dbt_version": "1.2.0",
+        "generated_at": "2023-05-12T06:04:03.536349Z",
+        "invocation_id": "e39d3796-bcd4-419d-b70d-8b499ea647cd",
+        "env": {}
+    },
+    "nodes": {
+        "snapshot.demo_transformation.snapshot_for_demo_employee_data": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "snapshots",
+                "name": "snapshot_for_demo_employee_data",
+                "database": "demo_transformation",
+                "comment": null,
+                "owner": "postgres"
+            },
+            "columns": {
+                "customer_id": {
+                    "type": "integer",
+                    "index": 1,
+                    "name": "customer_id",
+                    "comment": null
+                },
+                "first_name": {
+                    "type": "text",
+                    "index": 2,
+                    "name": "first_name",
+                    "comment": null
+                },
+                "last_name": {
+                    "type": "text",
+                    "index": 3,
+                    "name": "last_name",
+                    "comment": null
+                },
+                "email": {
+                    "type": "text",
+                    "index": 4,
+                    "name": "email",
+                    "comment": null
+                },
+                "salary": {
+                    "type": "integer",
+                    "index": 5,
+                    "name": "salary",
+                    "comment": null
+                },
+                "department": {
+                    "type": "text",
+                    "index": 6,
+                    "name": "department",
+                    "comment": null
+                },
+                "dbt_scd_id": {
+                    "type": "text",
+                    "index": 7,
+                    "name": "dbt_scd_id",
+                    "comment": null
+                },
+                "dbt_updated_at": {
+                    "type": "timestamp without time zone",
+                    "index": 8,
+                    "name": "dbt_updated_at",
+                    "comment": null
+                },
+                "dbt_valid_from": {
+                    "type": "timestamp without time zone",
+                    "index": 9,
+                    "name": "dbt_valid_from",
+                    "comment": null
+                },
+                "dbt_valid_to": {
+                    "type": "timestamp without time zone",
+                    "index": 10,
+                    "name": "dbt_valid_to",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "snapshot.demo_transformation.snapshot_for_demo_employee_data"
+        },
+        "model.demo_transformation.aggregated_data": {
+            "metadata": {
+                "type": "VIEW",
+                "schema": "target",
+                "name": "aggregated_data",
+                "database": "demo_transformation",
+                "comment": null,
+                "owner": "postgres"
+            },
+            "columns": {
+                "id_sr": {
+                    "type": "character varying",
+                    "index": 1,
+                    "name": "id_sr",
+                    "comment": null
+                },
+                "total_unique_acctype": {
+                    "type": "bigint",
+                    "index": 2,
+                    "name": "total_unique_acctype",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.demo_transformation.aggregated_data"
+        },
+        "model.demo_transformation.balance_record_data": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "target",
+                "name": "balance_record_data",
+                "database": "demo_transformation",
+                "comment": null,
+                "owner": "postgres"
+            },
+            "columns": {
+                "id_sr": {
+                    "type": "character varying",
+                    "index": 1,
+                    "name": "id_sr",
+                    "comment": null
+                },
+                "total_high_amount": {
+                    "type": "bigint",
+                    "index": 2,
+                    "name": "total_high_amount",
+                    "comment": null
+                },
+                "total_low_amount": {
+                    "type": "bigint",
+                    "index": 3,
+                    "name": "total_low_amount",
+                    "comment": null
+                },
+                "total_medium_amount": {
+                    "type": "bigint",
+                    "index": 4,
+                    "name": "total_medium_amount",
+                    "comment": null
+                },
+                "total_amount": {
+                    "type": "bigint",
+                    "index": 5,
+                    "name": "total_amount",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.demo_transformation.balance_record_data"
+        },
+        "seed.demo_transformation.demo_employee_data": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "target",
+                "name": "demo_employee_data",
+                "database": "demo_transformation",
+                "comment": null,
+                "owner": "postgres"
+            },
+            "columns": {
+                "customer_id": {
+                    "type": "integer",
+                    "index": 1,
+                    "name": "customer_id",
+                    "comment": null
+                },
+                "first_name": {
+                    "type": "text",
+                    "index": 2,
+                    "name": "first_name",
+                    "comment": null
+                },
+                "last_name": {
+                    "type": "text",
+                    "index": 3,
+                    "name": "last_name",
+                    "comment": null
+                },
+                "email": {
+                    "type": "text",
+                    "index": 4,
+                    "name": "email",
+                    "comment": null
+                },
+                "salary": {
+                    "type": "integer",
+                    "index": 5,
+                    "name": "salary",
+                    "comment": null
+                },
+                "department": {
+                    "type": "text",
+                    "index": 6,
+                    "name": "department",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "seed.demo_transformation.demo_employee_data"
+        },
+        "model.demo_transformation.filter_data": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "target",
+                "name": "filter_data",
+                "database": "demo_transformation",
+                "comment": null,
+                "owner": "postgres"
+            },
+            "columns": {
+                "id_sr": {
+                    "type": "character varying",
+                    "index": 1,
+                    "name": "id_sr",
+                    "comment": null
+                },
+                "propno": {
+                    "type": "character varying",
+                    "index": 2,
+                    "name": "propno",
+                    "comment": null
+                },
+                "acctype": {
+                    "type": "character varying",
+                    "index": 3,
+                    "name": "acctype",
+                    "comment": null
+                },
+                "ownerind": {
+                    "type": "character varying",
+                    "index": 4,
+                    "name": "ownerind",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.demo_transformation.filter_data"
+        },
+        "model.demo_transformation.load_data": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "target",
+                "name": "load_data",
+                "database": "demo_transformation",
+                "comment": null,
+                "owner": "postgres"
+            },
+            "columns": {
+                "id_sr": {
+                    "type": "character varying",
+                    "index": 1,
+                    "name": "id_sr",
+                    "comment": null
+                },
+                "propno": {
+                    "type": "character varying",
+                    "index": 2,
+                    "name": "propno",
+                    "comment": null
+                },
+                "acctype": {
+                    "type": "character varying",
+                    "index": 3,
+                    "name": "acctype",
+                    "comment": null
+                },
+                "ownerind": {
+                    "type": "character varying",
+                    "index": 4,
+                    "name": "ownerind",
+                    "comment": null
+                },
+                "dt_closed": {
+                    "type": "character varying",
+                    "index": 5,
+                    "name": "dt_closed",
+                    "comment": null
+                },
+                "dt_opened": {
+                    "type": "character varying",
+                    "index": 6,
+                    "name": "dt_opened",
+                    "comment": null
+                },
+                "requestid": {
+                    "type": "character varying",
+                    "index": 7,
+                    "name": "requestid",
+                    "comment": null
+                },
+                "frateogint": {
+                    "type": "character varying",
+                    "index": 8,
+                    "name": "frateogint",
+                    "comment": null
+                },
+                "ncashlimit": {
+                    "type": "character varying",
+                    "index": 9,
+                    "name": "ncashlimit",
+                    "comment": null
+                },
+                "nemiamount": {
+                    "type": "character varying",
+                    "index": 10,
+                    "name": "nemiamount",
+                    "comment": null
+                },
+                "nsettleamt": {
+                    "type": "character varying",
+                    "index": 11,
+                    "name": "nsettleamt",
+                    "comment": null
+                },
+                "szwriteoff": {
+                    "type": "character varying",
+                    "index": 12,
+                    "name": "szwriteoff",
+                    "comment": null
+                },
+                "amt_overdue": {
+                    "type": "character varying",
+                    "index": 13,
+                    "name": "amt_overdue",
+                    "comment": null
+                },
+                "current_bal": {
+                    "type": "character varying",
+                    "index": 14,
+                    "name": "current_bal",
+                    "comment": null
+                },
+                "dt_reported": {
+                    "type": "character varying",
+                    "index": 15,
+                    "name": "dt_reported",
+                    "comment": null
+                },
+                "high_credit": {
+                    "type": "character varying",
+                    "index": 16,
+                    "name": "high_credit",
+                    "comment": null
+                },
+                "nrepaytenor": {
+                    "type": "character varying",
+                    "index": 17,
+                    "name": "nrepaytenor",
+                    "comment": null
+                },
+                "szloanaccno": {
+                    "type": "character varying",
+                    "index": 18,
+                    "name": "szloanaccno",
+                    "comment": null
+                },
+                "ncollatvalue": {
+                    "type": "character varying",
+                    "index": 19,
+                    "name": "ncollatvalue",
+                    "comment": null
+                },
+                "ncreditlimit": {
+                    "type": "character varying",
+                    "index": 20,
+                    "name": "ncreditlimit",
+                    "comment": null
+                },
+                "pay_history1": {
+                    "type": "character varying",
+                    "index": 21,
+                    "name": "pay_history1",
+                    "comment": null
+                },
+                "pay_history2": {
+                    "type": "character varying",
+                    "index": 22,
+                    "name": "pay_history2",
+                    "comment": null
+                },
+                "szpayfrwquen": {
+                    "type": "character varying",
+                    "index": 23,
+                    "name": "szpayfrwquen",
+                    "comment": null
+                },
+                "szrepmemname": {
+                    "type": "character varying",
+                    "index": 24,
+                    "name": "szrepmemname",
+                    "comment": null
+                },
+                "sztypecollat": {
+                    "type": "character varying",
+                    "index": 25,
+                    "name": "sztypecollat",
+                    "comment": null
+                },
+                "dtpayhis_stdt": {
+                    "type": "character varying",
+                    "index": 26,
+                    "name": "dtpayhis_stdt",
+                    "comment": null
+                },
+                "nactualpayamt": {
+                    "type": "character varying",
+                    "index": 27,
+                    "name": "nactualpayamt",
+                    "comment": null
+                },
+                "ntotwrioffamt": {
+                    "type": "character varying",
+                    "index": 28,
+                    "name": "ntotwrioffamt",
+                    "comment": null
+                },
+                "dtpayhis_enddt": {
+                    "type": "character varying",
+                    "index": 29,
+                    "name": "dtpayhis_enddt",
+                    "comment": null
+                },
+                "nprinwrioffamt": {
+                    "type": "character varying",
+                    "index": 30,
+                    "name": "nprinwrioffamt",
+                    "comment": null
+                },
+                "dt_last_payment": {
+                    "type": "character varying",
+                    "index": 31,
+                    "name": "dt_last_payment",
+                    "comment": null
+                },
+                "suit_wilfil_sts": {
+                    "type": "character varying",
+                    "index": 32,
+                    "name": "suit_wilfil_sts",
+                    "comment": null
+                },
+                "_airbyte_ab_id": {
+                    "type": "character varying",
+                    "index": 33,
+                    "name": "_airbyte_ab_id",
+                    "comment": null
+                },
+                "_airbyte_emitted_at": {
+                    "type": "timestamp with time zone",
+                    "index": 34,
+                    "name": "_airbyte_emitted_at",
+                    "comment": null
+                },
+                "_airbyte_normalized_at": {
+                    "type": "timestamp with time zone",
+                    "index": 35,
+                    "name": "_airbyte_normalized_at",
+                    "comment": null
+                },
+                "_airbyte_tbl_trn_cibil_accountseg_hashid": {
+                    "type": "text",
+                    "index": 36,
+                    "name": "_airbyte_tbl_trn_cibil_accountseg_hashid",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.demo_transformation.load_data"
+        },
+        "model.demo_transformation.transformed_data": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "target",
+                "name": "transformed_data",
+                "database": "demo_transformation",
+                "comment": null,
+                "owner": "postgres"
+            },
+            "columns": {
+                "id_sr": {
+                    "type": "character varying",
+                    "index": 1,
+                    "name": "id_sr",
+                    "comment": null
+                },
+                "propno": {
+                    "type": "character varying",
+                    "index": 2,
+                    "name": "propno",
+                    "comment": null
+                },
+                "opened_date": {
+                    "type": "character varying",
+                    "index": 3,
+                    "name": "opened_date",
+                    "comment": null
+                },
+                "closed_date": {
+                    "type": "character varying",
+                    "index": 4,
+                    "name": "closed_date",
+                    "comment": null
+                },
+                "requestid": {
+                    "type": "character varying",
+                    "index": 5,
+                    "name": "requestid",
+                    "comment": null
+                },
+                "email_id": {
+                    "type": "character varying",
+                    "index": 6,
+                    "name": "email_id",
+                    "comment": null
+                },
+                "current_balance": {
+                    "type": "integer",
+                    "index": 7,
+                    "name": "current_balance",
+                    "comment": null
+                },
+                "blnc_flg": {
+                    "type": "text",
+                    "index": 8,
+                    "name": "blnc_flg",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.demo_transformation.transformed_data"
+        },
+        "test.demo_transformation.unique_filter_data_id_sr.7e22171535": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "target_dbt_test__audit",
+                "name": "unique_filter_data_id_sr",
+                "database": "demo_transformation",
+                "comment": null,
+                "owner": "postgres"
+            },
+            "columns": {
+                "unique_field": {
+                    "type": "character varying",
+                    "index": 1,
+                    "name": "unique_field",
+                    "comment": null
+                },
+                "n_records": {
+                    "type": "bigint",
+                    "index": 2,
+                    "name": "n_records",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "test.demo_transformation.unique_filter_data_id_sr.7e22171535"
+        }
+    },
+    "sources": {
+        "source.demo_transformation.public.tbl_trn_cibil_accountseg": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "public",
+                "name": "tbl_trn_cibil_accountseg",
+                "database": "demo_transformation",
+                "comment": null,
+                "owner": "postgres"
+            },
+            "columns": {
+                "id_sr": {
+                    "type": "character varying",
+                    "index": 1,
+                    "name": "id_sr",
+                    "comment": null
+                },
+                "propno": {
+                    "type": "character varying",
+                    "index": 2,
+                    "name": "propno",
+                    "comment": null
+                },
+                "acctype": {
+                    "type": "character varying",
+                    "index": 3,
+                    "name": "acctype",
+                    "comment": null
+                },
+                "ownerind": {
+                    "type": "character varying",
+                    "index": 4,
+                    "name": "ownerind",
+                    "comment": null
+                },
+                "dt_closed": {
+                    "type": "character varying",
+                    "index": 5,
+                    "name": "dt_closed",
+                    "comment": null
+                },
+                "dt_opened": {
+                    "type": "character varying",
+                    "index": 6,
+                    "name": "dt_opened",
+                    "comment": null
+                },
+                "requestid": {
+                    "type": "character varying",
+                    "index": 7,
+                    "name": "requestid",
+                    "comment": null
+                },
+                "frateogint": {
+                    "type": "character varying",
+                    "index": 8,
+                    "name": "frateogint",
+                    "comment": null
+                },
+                "ncashlimit": {
+                    "type": "character varying",
+                    "index": 9,
+                    "name": "ncashlimit",
+                    "comment": null
+                },
+                "nemiamount": {
+                    "type": "character varying",
+                    "index": 10,
+                    "name": "nemiamount",
+                    "comment": null
+                },
+                "nsettleamt": {
+                    "type": "character varying",
+                    "index": 11,
+                    "name": "nsettleamt",
+                    "comment": null
+                },
+                "szwriteoff": {
+                    "type": "character varying",
+                    "index": 12,
+                    "name": "szwriteoff",
+                    "comment": null
+                },
+                "amt_overdue": {
+                    "type": "character varying",
+                    "index": 13,
+                    "name": "amt_overdue",
+                    "comment": null
+                },
+                "current_bal": {
+                    "type": "character varying",
+                    "index": 14,
+                    "name": "current_bal",
+                    "comment": null
+                },
+                "dt_reported": {
+                    "type": "character varying",
+                    "index": 15,
+                    "name": "dt_reported",
+                    "comment": null
+                },
+                "high_credit": {
+                    "type": "character varying",
+                    "index": 16,
+                    "name": "high_credit",
+                    "comment": null
+                },
+                "nrepaytenor": {
+                    "type": "character varying",
+                    "index": 17,
+                    "name": "nrepaytenor",
+                    "comment": null
+                },
+                "szloanaccno": {
+                    "type": "character varying",
+                    "index": 18,
+                    "name": "szloanaccno",
+                    "comment": null
+                },
+                "ncollatvalue": {
+                    "type": "character varying",
+                    "index": 19,
+                    "name": "ncollatvalue",
+                    "comment": null
+                },
+                "ncreditlimit": {
+                    "type": "character varying",
+                    "index": 20,
+                    "name": "ncreditlimit",
+                    "comment": null
+                },
+                "pay_history1": {
+                    "type": "character varying",
+                    "index": 21,
+                    "name": "pay_history1",
+                    "comment": null
+                },
+                "pay_history2": {
+                    "type": "character varying",
+                    "index": 22,
+                    "name": "pay_history2",
+                    "comment": null
+                },
+                "szpayfrwquen": {
+                    "type": "character varying",
+                    "index": 23,
+                    "name": "szpayfrwquen",
+                    "comment": null
+                },
+                "szrepmemname": {
+                    "type": "character varying",
+                    "index": 24,
+                    "name": "szrepmemname",
+                    "comment": null
+                },
+                "sztypecollat": {
+                    "type": "character varying",
+                    "index": 25,
+                    "name": "sztypecollat",
+                    "comment": null
+                },
+                "dtpayhis_stdt": {
+                    "type": "character varying",
+                    "index": 26,
+                    "name": "dtpayhis_stdt",
+                    "comment": null
+                },
+                "nactualpayamt": {
+                    "type": "character varying",
+                    "index": 27,
+                    "name": "nactualpayamt",
+                    "comment": null
+                },
+                "ntotwrioffamt": {
+                    "type": "character varying",
+                    "index": 28,
+                    "name": "ntotwrioffamt",
+                    "comment": null
+                },
+                "dtpayhis_enddt": {
+                    "type": "character varying",
+                    "index": 29,
+                    "name": "dtpayhis_enddt",
+                    "comment": null
+                },
+                "nprinwrioffamt": {
+                    "type": "character varying",
+                    "index": 30,
+                    "name": "nprinwrioffamt",
+                    "comment": null
+                },
+                "dt_last_payment": {
+                    "type": "character varying",
+                    "index": 31,
+                    "name": "dt_last_payment",
+                    "comment": null
+                },
+                "suit_wilfil_sts": {
+                    "type": "character varying",
+                    "index": 32,
+                    "name": "suit_wilfil_sts",
+                    "comment": null
+                },
+                "_airbyte_ab_id": {
+                    "type": "character varying",
+                    "index": 33,
+                    "name": "_airbyte_ab_id",
+                    "comment": null
+                },
+                "_airbyte_emitted_at": {
+                    "type": "timestamp with time zone",
+                    "index": 34,
+                    "name": "_airbyte_emitted_at",
+                    "comment": null
+                },
+                "_airbyte_normalized_at": {
+                    "type": "timestamp with time zone",
+                    "index": 35,
+                    "name": "_airbyte_normalized_at",
+                    "comment": null
+                },
+                "_airbyte_tbl_trn_cibil_accountseg_hashid": {
+                    "type": "text",
+                    "index": 36,
+                    "name": "_airbyte_tbl_trn_cibil_accountseg_hashid",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.demo_transformation.public.tbl_trn_cibil_accountseg"
+        },
+        "source.demo_transformation.public.tbl_trn_cibil_addressseg": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "public",
+                "name": "tbl_trn_cibil_addressseg",
+                "database": "demo_transformation",
+                "comment": null,
+                "owner": "postgres"
+            },
+            "columns": {
+                "id_sr": {
+                    "type": "character varying",
+                    "index": 1,
+                    "name": "id_sr",
+                    "comment": null
+                },
+                "szzip": {
+                    "type": "character varying",
+                    "index": 2,
+                    "name": "szzip",
+                    "comment": null
+                },
+                "newpropno": {
+                    "type": "character varying",
+                    "index": 3,
+                    "name": "newpropno",
+                    "comment": null
+                },
+                "requestid": {
+                    "type": "character varying",
+                    "index": 4,
+                    "name": "requestid",
+                    "comment": null
+                },
+                "dtreported": {
+                    "type": "character varying",
+                    "index": 5,
+                    "name": "dtreported",
+                    "comment": null
+                },
+                "szaddress1": {
+                    "type": "character varying",
+                    "index": 6,
+                    "name": "szaddress1",
+                    "comment": null
+                },
+                "szaddress2": {
+                    "type": "character varying",
+                    "index": 7,
+                    "name": "szaddress2",
+                    "comment": null
+                },
+                "szaddress3": {
+                    "type": "character varying",
+                    "index": 8,
+                    "name": "szaddress3",
+                    "comment": null
+                },
+                "szcitycode": {
+                    "type": "character varying",
+                    "index": 9,
+                    "name": "szcitycode",
+                    "comment": null
+                },
+                "szresicode": {
+                    "type": "character varying",
+                    "index": 10,
+                    "name": "szresicode",
+                    "comment": null
+                },
+                "szdistrinct": {
+                    "type": "character varying",
+                    "index": 11,
+                    "name": "szdistrinct",
+                    "comment": null
+                },
+                "szstatecode": {
+                    "type": "character varying",
+                    "index": 12,
+                    "name": "szstatecode",
+                    "comment": null
+                },
+                "szaddresscate": {
+                    "type": "character varying",
+                    "index": 13,
+                    "name": "szaddresscate",
+                    "comment": null
+                },
+                "dtuserdatetime": {
+                    "type": "character varying",
+                    "index": 14,
+                    "name": "dtuserdatetime",
+                    "comment": null
+                },
+                "szmemshortname": {
+                    "type": "character varying",
+                    "index": 15,
+                    "name": "szmemshortname",
+                    "comment": null
+                },
+                "_airbyte_ab_id": {
+                    "type": "character varying",
+                    "index": 16,
+                    "name": "_airbyte_ab_id",
+                    "comment": null
+                },
+                "_airbyte_emitted_at": {
+                    "type": "timestamp with time zone",
+                    "index": 17,
+                    "name": "_airbyte_emitted_at",
+                    "comment": null
+                },
+                "_airbyte_normalized_at": {
+                    "type": "timestamp with time zone",
+                    "index": 18,
+                    "name": "_airbyte_normalized_at",
+                    "comment": null
+                },
+                "_airbyte_tbl_trn_cibil_addressseg_hashid": {
+                    "type": "text",
+                    "index": 19,
+                    "name": "_airbyte_tbl_trn_cibil_addressseg_hashid",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.demo_transformation.public.tbl_trn_cibil_addressseg"
+        },
+        "source.demo_transformation.public.tbl_trn_cibil_emailseg": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "public",
+                "name": "tbl_trn_cibil_emailseg",
+                "database": "demo_transformation",
+                "comment": null,
+                "owner": "postgres"
+            },
+            "columns": {
+                "id_sr": {
+                    "type": "character varying",
+                    "index": 1,
+                    "name": "id_sr",
+                    "comment": null
+                },
+                "propno": {
+                    "type": "character varying",
+                    "index": 2,
+                    "name": "propno",
+                    "comment": null
+                },
+                "semail": {
+                    "type": "character varying",
+                    "index": 3,
+                    "name": "semail",
+                    "comment": null
+                },
+                "requestid": {
+                    "type": "character varying",
+                    "index": 4,
+                    "name": "requestid",
+                    "comment": null
+                },
+                "_airbyte_ab_id": {
+                    "type": "character varying",
+                    "index": 5,
+                    "name": "_airbyte_ab_id",
+                    "comment": null
+                },
+                "_airbyte_emitted_at": {
+                    "type": "timestamp with time zone",
+                    "index": 6,
+                    "name": "_airbyte_emitted_at",
+                    "comment": null
+                },
+                "_airbyte_normalized_at": {
+                    "type": "timestamp with time zone",
+                    "index": 7,
+                    "name": "_airbyte_normalized_at",
+                    "comment": null
+                },
+                "_airbyte_tbl_trn_cibil_emailseg_hashid": {
+                    "type": "text",
+                    "index": 8,
+                    "name": "_airbyte_tbl_trn_cibil_emailseg_hashid",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.demo_transformation.public.tbl_trn_cibil_emailseg"
+        },
+        "source.demo_transformation.public.tbl_trn_cibil_enquiry": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "public",
+                "name": "tbl_trn_cibil_enquiry",
+                "database": "demo_transformation",
+                "comment": null,
+                "owner": "postgres"
+            },
+            "columns": {
+                "isrno": {
+                    "type": "character varying",
+                    "index": 1,
+                    "name": "isrno",
+                    "comment": null
+                },
+                "propno": {
+                    "type": "character varying",
+                    "index": 2,
+                    "name": "propno",
+                    "comment": null
+                },
+                "cstatus": {
+                    "type": "character varying",
+                    "index": 3,
+                    "name": "cstatus",
+                    "comment": null
+                },
+                "clientid": {
+                    "type": "character varying",
+                    "index": 4,
+                    "name": "clientid",
+                    "comment": null
+                },
+                "szuserid": {
+                    "type": "character varying",
+                    "index": 5,
+                    "name": "szuserid",
+                    "comment": null
+                },
+                "ciscirreq": {
+                    "type": "character varying",
+                    "index": 6,
+                    "name": "ciscirreq",
+                    "comment": null
+                },
+                "szloan_id": {
+                    "type": "character varying",
+                    "index": 7,
+                    "name": "szloan_id",
+                    "comment": null
+                },
+                "sztokenno": {
+                    "type": "character varying",
+                    "index": 8,
+                    "name": "sztokenno",
+                    "comment": null
+                },
+                "cisekycreq": {
+                    "type": "character varying",
+                    "index": 9,
+                    "name": "cisekycreq",
+                    "comment": null
+                },
+                "cvoteridyn": {
+                    "type": "character varying",
+                    "index": 10,
+                    "name": "cvoteridyn",
+                    "comment": null
+                },
+                "inooftutry": {
+                    "type": "character varying",
+                    "index": 11,
+                    "name": "inooftutry",
+                    "comment": null
+                },
+                "caadharidyn": {
+                    "type": "character varying",
+                    "index": 12,
+                    "name": "caadharidyn",
+                    "comment": null
+                },
+                "dtsubmitted": {
+                    "type": "character varying",
+                    "index": 13,
+                    "name": "dtsubmitted",
+                    "comment": null
+                },
+                "iactivityid": {
+                    "type": "character varying",
+                    "index": 14,
+                    "name": "iactivityid",
+                    "comment": null
+                },
+                "sztuef_data": {
+                    "type": "character varying",
+                    "index": 15,
+                    "name": "sztuef_data",
+                    "comment": null
+                },
+                "cpannumberyn": {
+                    "type": "character varying",
+                    "index": 16,
+                    "name": "cpannumberyn",
+                    "comment": null
+                },
+                "sztypeofloan": {
+                    "type": "character varying",
+                    "index": 17,
+                    "name": "sztypeofloan",
+                    "comment": null
+                },
+                "cpassportidyn": {
+                    "type": "character varying",
+                    "index": 18,
+                    "name": "cpassportidyn",
+                    "comment": null
+                },
+                "dtlastupdated": {
+                    "type": "character varying",
+                    "index": 19,
+                    "name": "dtlastupdated",
+                    "comment": null
+                },
+                "szreq_meta_dc": {
+                    "type": "character varying",
+                    "index": 20,
+                    "name": "szreq_meta_dc",
+                    "comment": null
+                },
+                "szreq_meta_mc": {
+                    "type": "character varying",
+                    "index": 21,
+                    "name": "szreq_meta_mc",
+                    "comment": null
+                },
+                "szreq_meta_mi": {
+                    "type": "character varying",
+                    "index": 22,
+                    "name": "szreq_meta_mi",
+                    "comment": null
+                },
+                "ciscirscorereq": {
+                    "type": "character varying",
+                    "index": 23,
+                    "name": "ciscirscorereq",
+                    "comment": null
+                },
+                "iaddress1srlno": {
+                    "type": "character varying",
+                    "index": 24,
+                    "name": "iaddress1srlno",
+                    "comment": null
+                },
+                "iaddress2srlno": {
+                    "type": "character varying",
+                    "index": 25,
+                    "name": "iaddress2srlno",
+                    "comment": null
+                },
+                "icontrolnumber": {
+                    "type": "character varying",
+                    "index": 26,
+                    "name": "icontrolnumber",
+                    "comment": null
+                },
+                "szaddress1type": {
+                    "type": "character varying",
+                    "index": 27,
+                    "name": "szaddress1type",
+                    "comment": null
+                },
+                "szaddress2type": {
+                    "type": "character varying",
+                    "index": 28,
+                    "name": "szaddress2type",
+                    "comment": null
+                },
+                "szencryptedpid": {
+                    "type": "character varying",
+                    "index": 29,
+                    "name": "szencryptedpid",
+                    "comment": null
+                },
+                "crationcardnoyn": {
+                    "type": "character varying",
+                    "index": 30,
+                    "name": "crationcardnoyn",
+                    "comment": null
+                },
+                "isubjectretcode": {
+                    "type": "character varying",
+                    "index": 31,
+                    "name": "isubjectretcode",
+                    "comment": null
+                },
+                "szencryptedhmac": {
+                    "type": "character varying",
+                    "index": 32,
+                    "name": "szencryptedhmac",
+                    "comment": null
+                },
+                "szenqmembercode": {
+                    "type": "character varying",
+                    "index": 33,
+                    "name": "szenqmembercode",
+                    "comment": null
+                },
+                "szreq_meta_dpid": {
+                    "type": "character varying",
+                    "index": 34,
+                    "name": "szreq_meta_dpid",
+                    "comment": null
+                },
+                "szreq_meta_rdsid": {
+                    "type": "character varying",
+                    "index": 35,
+                    "name": "szreq_meta_rdsid",
+                    "comment": null
+                },
+                "cdrivinglicenseyn": {
+                    "type": "character varying",
+                    "index": 36,
+                    "name": "cdrivinglicenseyn",
+                    "comment": null
+                },
+                "szfinaltracelevel": {
+                    "type": "character varying",
+                    "index": 37,
+                    "name": "szfinaltracelevel",
+                    "comment": null
+                },
+                "szreq_meta_rdsver": {
+                    "type": "character varying",
+                    "index": 38,
+                    "name": "szreq_meta_rdsver",
+                    "comment": null
+                },
+                "dtcurrenttimestamp": {
+                    "type": "character varying",
+                    "index": 39,
+                    "name": "dtcurrenttimestamp",
+                    "comment": null
+                },
+                "creviewactivitystatus": {
+                    "type": "character varying",
+                    "index": 40,
+                    "name": "creviewactivitystatus",
+                    "comment": null
+                },
+                "szencryptedsessionkey": {
+                    "type": "character varying",
+                    "index": 41,
+                    "name": "szencryptedsessionkey",
+                    "comment": null
+                },
+                "cvehicleregistrationidyn": {
+                    "type": "character varying",
+                    "index": 42,
+                    "name": "cvehicleregistrationidyn",
+                    "comment": null
+                },
+                "_airbyte_ab_id": {
+                    "type": "character varying",
+                    "index": 43,
+                    "name": "_airbyte_ab_id",
+                    "comment": null
+                },
+                "_airbyte_emitted_at": {
+                    "type": "timestamp with time zone",
+                    "index": 44,
+                    "name": "_airbyte_emitted_at",
+                    "comment": null
+                },
+                "_airbyte_normalized_at": {
+                    "type": "timestamp with time zone",
+                    "index": 45,
+                    "name": "_airbyte_normalized_at",
+                    "comment": null
+                },
+                "_airbyte_tbl_trn_cibil_enquiry_hashid": {
+                    "type": "text",
+                    "index": 46,
+                    "name": "_airbyte_tbl_trn_cibil_enquiry_hashid",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.demo_transformation.public.tbl_trn_cibil_enquiry"
+        },
+        "source.demo_transformation.public.tbl_trn_cibil_nameseg": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "public",
+                "name": "tbl_trn_cibil_nameseg",
+                "database": "demo_transformation",
+                "comment": null,
+                "owner": "postgres"
+            },
+            "columns": {
+                "csex": {
+                    "type": "character varying",
+                    "index": 1,
+                    "name": "csex",
+                    "comment": null
+                },
+                "id_sr": {
+                    "type": "character varying",
+                    "index": 2,
+                    "name": "id_sr",
+                    "comment": null
+                },
+                "propno": {
+                    "type": "character varying",
+                    "index": 3,
+                    "name": "propno",
+                    "comment": null
+                },
+                "szfname": {
+                    "type": "character varying",
+                    "index": 4,
+                    "name": "szfname",
+                    "comment": null
+                },
+                "szlname": {
+                    "type": "character varying",
+                    "index": 5,
+                    "name": "szlname",
+                    "comment": null
+                },
+                "szmname": {
+                    "type": "character varying",
+                    "index": 6,
+                    "name": "szmname",
+                    "comment": null
+                },
+                "szname4": {
+                    "type": "character varying",
+                    "index": 7,
+                    "name": "szname4",
+                    "comment": null
+                },
+                "szname5": {
+                    "type": "character varying",
+                    "index": 8,
+                    "name": "szname5",
+                    "comment": null
+                },
+                "requestid": {
+                    "type": "character varying",
+                    "index": 9,
+                    "name": "requestid",
+                    "comment": null
+                },
+                "szvotersid": {
+                    "type": "character varying",
+                    "index": 10,
+                    "name": "szvotersid",
+                    "comment": null
+                },
+                "szadharcard": {
+                    "type": "character varying",
+                    "index": 11,
+                    "name": "szadharcard",
+                    "comment": null
+                },
+                "szpassportno": {
+                    "type": "character varying",
+                    "index": 12,
+                    "name": "szpassportno",
+                    "comment": null
+                },
+                "szrationcard": {
+                    "type": "character varying",
+                    "index": 13,
+                    "name": "szrationcard",
+                    "comment": null
+                },
+                "dtdateofbirth": {
+                    "type": "character varying",
+                    "index": 14,
+                    "name": "dtdateofbirth",
+                    "comment": null
+                },
+                "szincometaxid": {
+                    "type": "character varying",
+                    "index": 15,
+                    "name": "szincometaxid",
+                    "comment": null
+                },
+                "szdrivinglicence": {
+                    "type": "character varying",
+                    "index": 16,
+                    "name": "szdrivinglicence",
+                    "comment": null
+                },
+                "szcontactperphone_1": {
+                    "type": "character varying",
+                    "index": 17,
+                    "name": "szcontactperphone_1",
+                    "comment": null
+                },
+                "szcontactperphone_2": {
+                    "type": "character varying",
+                    "index": 18,
+                    "name": "szcontactperphone_2",
+                    "comment": null
+                },
+                "_airbyte_ab_id": {
+                    "type": "character varying",
+                    "index": 19,
+                    "name": "_airbyte_ab_id",
+                    "comment": null
+                },
+                "_airbyte_emitted_at": {
+                    "type": "timestamp with time zone",
+                    "index": 20,
+                    "name": "_airbyte_emitted_at",
+                    "comment": null
+                },
+                "_airbyte_normalized_at": {
+                    "type": "timestamp with time zone",
+                    "index": 21,
+                    "name": "_airbyte_normalized_at",
+                    "comment": null
+                },
+                "_airbyte_tbl_trn_cibil_nameseg_hashid": {
+                    "type": "text",
+                    "index": 22,
+                    "name": "_airbyte_tbl_trn_cibil_nameseg_hashid",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.demo_transformation.public.tbl_trn_cibil_nameseg"
+        }
+    },
+    "errors": null
+}

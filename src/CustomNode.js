@@ -10,7 +10,7 @@ const Node = styled.div`
   border-radius: 30px;
   background: linear-gradient(360deg, black, #6d023ecf);
   color: white;
-  border: 1px solid
+  border: 4px solid
     ${(props) =>
       props.selected ? props.theme.primary : props.theme.nodeBorder};
 
