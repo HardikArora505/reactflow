@@ -20,11 +20,12 @@ export const darkTheme = {
   
     nodeBg: "#343435",
     nodeColor: "#f9f9f9",
-    nodeBorder: "#000",
+    nodeBorder: "#ff74b2",
   
-    minimapMaskBg: "#000",
+    minimapMaskBg: "#712c8e",
+    minimapBorder:"#d56fff",
   
-    controlsBg: "#000",
+    controlsBg: "#343435",
     controlsBgHover: "#888",
     controlsColor: "#dddddd",
     controlsBorder: "#676768"

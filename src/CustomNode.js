@@ -8,11 +8,12 @@ const Node = styled.div`
   align-items: center;
   padding: 15px 25px;
   border-radius: 30px;
-  background: linear-gradient(360deg, black, #6d023ecf);
-  color: white;
+  background: linear-gradient(360deg, rgb(227 150 245), rgb(255 146 189));
+  color: black;
+  font-size:1.4em;
   border: 4px solid
     ${(props) =>
-      props.selected ? props.theme.primary : props.theme.nodeBorder};
+      props.selected ? "#050079" : props.theme.nodeBorder};
 
   .react-flow__handle {
     background: ${(props) => props.theme.primary};

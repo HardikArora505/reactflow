@@ -221,10 +221,10 @@ const nodeTypes = {
 //   ]
 
 const ReactFlowStyled = styled(ReactFlow)`
-    background: linear-gradient(45deg, rgb(15 1 55) 0%, rgb(53 1 42) 100%);
+    background: linear-gradient(45deg, rgb(174 152 249) 0%, rgb(241 143 220) 100%);
   `;
 const MiniMapStyled = styled(MiniMap)`
-    background-color: ${(props) => props.theme.bg};
+    background-color: ${(props) => props.theme.minimapBorder};
   
     .react-flow__minimap-mask {
       fill: ${(props) => props.theme.minimapMaskBg};
@@ -482,10 +482,10 @@ const Flow = ({ children }) => {
                 return {
                     ...edge,
                     style: {
-                        stroke: "#01e1ff",
+                        stroke: "#050079",
                         strokeWidth: 5
                     },
-                    markerEnd: { type: "arrowclosed", color: "#01e1ff", width: 20, height: 20 },
+                    markerEnd: { type: "arrowclosed", color: "#050079", width: 20, height: 20 },
                     animated: true
                 }
             }
