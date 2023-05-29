@@ -541,8 +541,6 @@ const Flow = ({ children }) => {
                     connectionLineComponent={ConnectionLine}
                     fitView
                     elevateEdgesOnSelect={true}
-                    snapGrid={[25, 25]}
-                    snapToGrid={true}
                     minZoom={0.1}
                 >
                     <MiniMapStyled />

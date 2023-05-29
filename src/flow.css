@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     max-width: 30vw;
-    height: 100vh;
+    max-height: 100vh;
     border: 2px solid black;
     background: -webkit-linear-gradient(to right, #2e2e2e, #000000);
     background: linear-gradient(to right, #2e2e2e, #000000);
